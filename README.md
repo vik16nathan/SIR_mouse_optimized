@@ -3,11 +3,12 @@ Code for simulating the amount of alpha synuclein accumulation/brain atrophy ori
 
 ## Dependencies
 
+## Main script: abm_optuna_general.py
+
 ## Workflow 
 
-## Input files
+## Outputs
 
-## Output files
 
-## Future analyses
+
 
