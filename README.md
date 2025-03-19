@@ -7,7 +7,7 @@ Code is built upon previous work from Shady Rahayel (https://github.com/srahayel
 ## Main script: abm_optuna_general.py
 
 ## Full Workflow 
-
+--enables the generation of 
 ### Filter and package clearance genes into individual model inputs
 
 1. **package_data.R**: provided by Yohan Yee, PhD, to parcellate the coronal and sagittal gene expression patterns for all genes from the Allen Mouse Brain Atlas' in-situ hybridization (ISH) data into the regions in the Allen Brain Ontology. Of particular interest are columns denoting the proportion of "valid" voxels with a measurement in each brain region, as well as the gene expression within each brain region normalized against whole-brain expression. \n
@@ -15,14 +15,24 @@ Code is built upon previous work from Shady Rahayel (https://github.com/srahayel
 
 2. **filter_parcellated_GE.R**
 
-3. **chop_GE_mr_vv.py**
+3. **pickle_abm_inputs.py**
 
 ### Run SIR agent-based model to find optimal parameters and simulate pathology 
 
 4. **abm_optuna_general.py**: see above
 5. **abm_clearance_genes.py**: allows you to simulate the "I" fraction/atrophy given a specific set of parameters for v, spread_rate, k1, k2, and retro. Output is the .pkl file containing the simulated neurodegeneration data for every timestep of the SIR model, but with a single set of "trial" parameters (no optuna). This is useful for simulating neurodegeneration in each region for the "optimal" parameterization determined above, and then correlating with the empirical pathology.
 
-### Miscellaneous other scripts
+### Visualize simulated vs. empirical atrophy/pSyn pathology
+6. **sir_conf_int.R**: come up with confidence intervals across 40 repeats of 200 Optuna trials for each baseline (without clearance), allowing us to determine the baseline correlation between simulated vs. empirical pathology without any clearance. This also plots the SIR model correlation after simulations using -t 1000, -t 3000, and -t 5000, allowing us to determine the number of time steps needed for the model to meaningfully converge.
+7. **save_top_genes_and_venn.R**: look at a venn diagram of all genes that outperform the baselines from (6) for each epicentre/type of pathology
+8.  **plot_avg_optuna.R**: plots smoothed correlation between simulated vs. empirical pathology across full range of parameters tested using Optuna, averaging across the top genes/gene ontology processes from the genes in (7). Need an input folder of .csv files generating using abm_optuna_general.py with the -x argument
+9. **plot_sim_vs_actual_with_clearance.R**: plot the simulated vs. actual map of pathology, coloring each point by the relative expression of the clearance gene
+
+## Miscellaneous other scripts
+
+**plot_shady_ihc.R**: given templates/masks for the Allen Mouse Brain Atlas label file, as well as the regional average IHC-derived pSyn pathology from Rahayel et al., 2022, *Brain* with the same set of regions, plot brain maps of pSyn pathology to facilitate visual comparison with MRI-derived atrophies. 
+
+**convert_shady_ihc_to_csv.R**: used to convert supplementary tables of IHC pathology from Rahayel et al., 2022, *Brain*.
 
 ## Dependencies
 python 3.11.5 with all prerequisite packages installed
