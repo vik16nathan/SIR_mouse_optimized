@@ -1,0 +1,1 @@
+Binarized/thresholded connectome of the mouse brain provided by Rahayel et al., 2022, *Brain*, filtered by the regions that have valid gene expression patterns from **filter_parcellated_GE.R** and valid atrophy patterns from MRI (209 regions in each hemisphere instead of 213)
