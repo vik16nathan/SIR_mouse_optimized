@@ -10,12 +10,13 @@ Code is built upon previous work from Shady Rahayel (https://github.com/srahayel
 
 ### Filter and package clearance genes into individual model inputs
 
-1. **package_data.R**: provided by Yohan Yee, PhD, to parcellate the coronal and sagittal gene expression patterns for all genes from the Allen Mouse Brain Atlas' in-situ hybridization (ISH) data into the regions in the Allen Brain Ontology. Of particular interest are columns denoting the proportion of "valid" voxels with a measurement in each brain region, as well as the gene expression within each brain region normalized against whole-brain expression. \n
+1. **package_data.R**: provided by Yohan Yee, PhD, to parcellate the coronal and sagittal gene expression patterns for all genes from the Allen Mouse Brain Atlas' in-situ hybridization (ISH) data into the regions in the Allen Brain Ontology. Of particular interest are columns denoting the proportion of "valid" voxels with a measurement in each brain region, as well as the gene expression within each brain region normalized against whole-brain expression.
+
 -- output: coronal_expression_data.csv, sagittal_expression_data.csv
 
-2. **filter_parcellated_GE.R**
+3. **filter_parcellated_GE.R**
 
-3. **pickle_abm_inputs.py**
+4. **pickle_abm_inputs.py**
 
 ### Run SIR agent-based model to find optimal parameters and simulate pathology 
 
