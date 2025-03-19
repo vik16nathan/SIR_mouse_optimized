@@ -17,10 +17,12 @@ Code is built upon previous work from Shady Rahayel (https://github.com/srahayel
 
 3. **chop_GE_mr_vv.py**
 
-### Run SIR agent-based model to find optimal parameters across 
+### Run SIR agent-based model to find optimal parameters and simulate pathology 
 
 4. ***abm_optuna_general.py**: see above
-5. ***abm_clearance_genes.py**: allows you to simulate the "I" fraction/atrophy given a specific set of parameters for v, spread_rate, k1, k2, and retro. Output is the .pkl file containing the simulated neurodegeneration data for every timestep of the SIR model, but with a single set of "trial" parameters (no optuna). This is useful for simulating neurodegeneration in each region for the "optimal" parameterization determined above, and then correlating with the empirical pathology. 
+5. ***abm_clearance_genes.py**: allows you to simulate the "I" fraction/atrophy given a specific set of parameters for v, spread_rate, k1, k2, and retro. Output is the .pkl file containing the simulated neurodegeneration data for every timestep of the SIR model, but with a single set of "trial" parameters (no optuna). This is useful for simulating neurodegeneration in each region for the "optimal" parameterization determined above, and then correlating with the empirical pathology.
+
+### Miscellaneous other scripts
 
 ## Dependencies
 python 3.11.5 with all prerequisite packages installed
