@@ -7,7 +7,7 @@ Code is built upon previous work from Shady Rahayel (https://github.com/srahayel
 ## Main script: abm_optuna_general.py
 
 ## Full Workflow 
---enables the generation of 
+
 ### Filter and package clearance genes into individual model inputs
 
 1. **package_data.R**: provided by Yohan Yee, PhD, to parcellate the coronal and sagittal gene expression patterns for all genes from the Allen Mouse Brain Atlas' in-situ hybridization (ISH) data into the regions in the Allen Brain Ontology. Of particular interest are columns denoting the proportion of "valid" voxels with a measurement in each brain region, as well as the gene expression within each brain region normalized against whole-brain expression. \n
