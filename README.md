@@ -39,10 +39,7 @@ python 3.11.5 with all prerequisite packages installed
 R with all prerequisite packages installed
 qbatch is not necessary but highly recommended to parallelize job submission (especially when repeating abm_optuna_general.py with thousands of clearance genes and hundreds of trials)
 
-## Main script: abm_optuna_general.py
 
-## Outputs
+## Results
 
-
-
-
+See link to on-demand oral presentation and poster from ADPD 2025.
