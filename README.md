@@ -6,7 +6,7 @@ Code is built upon previous work from Shady Rahayel (https://github.com/srahayel
 
 ## Main script: abm_optuna_general.py
 
-Files needed:
+Files needed (see *inputs*):
 
 - yohan_source_full.pkl: a file containing all the mesoscale regions from Oh et al., 2014 that were retained after parcellating gene expression and filtering genes with sufficient spatial resolution (see steps 1-3 of the full workflow)
 
