@@ -4,6 +4,8 @@ Code for simulating the amount of alpha synuclein accumulation/brain atrophy ori
 
 Code is built upon previous work from Shady Rahayel (https://github.com/srahayel/SIR_mouse ), but modified to include the non-uniform clearance of aSyn from each brain region (defined by gene expression), to optimize parameters that best fit our output pathology maps, and to distinguish between aSyn accumulation and downstream atrophy (based on the methods from Zheng et al., 2019). 
 
+If you have any questions, don't hesitate to contact me at vikram.nathan@mail.mcgill.ca ! 
+
 ## Main script: abm_optuna_general.py
 
 Files needed (see *inputs*):
