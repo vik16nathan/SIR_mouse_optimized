@@ -9,12 +9,16 @@ Arguments:
 
 `   parser.add_argument("-a", "--atrophy", type=str2bool, default=False, dest="atrophy",
                         nargs='?', help="Boolean for whether we want to simulate atrophy or stop at I fraction")
+                        
     parser.add_argument("-m", "--map_to_predict", dest="map",
                         nargs='?', help="Pathological map to compare to simulated atrophy")
+                        
     parser.add_argument("-x", "--suffix", dest="suffix", default=None,  nargs='?',
                         help="Suffix (typically used for multiple random repeats of same configuration)")
-    parser.add_argument('-k', "--connectome", dest="connectome", nargs='?',
+                        
+    parser.add_argument("-k", "--connectome", dest="connectome", nargs='?',
                         help="Connectome (pkl file w/ weights, distance, region size, sources, targets )")
+                        
     parser.add_argument(
         "-g", "--GEdir", default=None, dest="clearance_gene_dir",
          nargs='?', help="Clearance Gene Directory"
