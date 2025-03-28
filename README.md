@@ -5,6 +5,59 @@ Code for simulating the amount of alpha synuclein accumulation/brain atrophy ori
 Code is built upon previous work from Shady Rahayel (https://github.com/srahayel/SIR_mouse ), but modified to include the non-uniform clearance of aSyn from each brain region (defined by gene expression), to optimize parameters that best fit our output pathology maps, and to distinguish between aSyn accumulation and downstream atrophy (based on the methods from Zheng et al., 2019). 
 
 ## Main script: abm_optuna_general.py
+Arguments:
+`
+   parser.add_argument("-a", "--atrophy", type=str2bool, default=False, dest="atrophy",
+                        nargs='?', help="Boolean for whether we want to simulate atrophy or stop at I fraction")
+    parser.add_argument("-m", "--map_to_predict", dest="map",
+                        nargs='?', help="Pathological map to compare to simulated atrophy")
+    parser.add_argument("-x", "--suffix", dest="suffix", default=None,  nargs='?',
+                        help="Suffix (typically used for multiple random repeats of same configuration)")
+    parser.add_argument('-k', "--connectome", dest="connectome", nargs='?',
+                        help="Connectome (pkl file w/ weights, distance, region size, sources, targets )")
+    parser.add_argument(
+        "-g", "--GEdir", default=None, dest="clearance_gene_dir",
+         nargs='?', help="Clearance Gene Directory"
+    )
+    parser.add_argument(
+        "-c", "--clearance", default=None, dest="clearance_gene",
+        help="Specify the gene modulating clearance"
+    )
+    
+    parser.add_argument(
+        "-r", "--retro", default=False, dest="retro",
+        type=str2bool, nargs='?', help="Retrograde spreading (default False) "
+    )
+
+    parser.add_argument(
+        "-t", "--time", default=30000, type=int, nargs='?',
+        dest="total_time", help="Total spreading time"
+    )
+    parser.add_argument(
+        "-d", "--delta-t", default=0.1, type=float, nargs='?',
+        dest="dt", help="Size of time increment"
+    )
+    parser.add_argument(
+        "-e", "--epsilon", default=1e-5, type=float, nargs='?', #Shady's default was 1e-7 but this was waaaay too slow
+        dest="eps", help="Convergence threshold"
+    )
+    
+    parser.add_argument(
+        "-S", "--seed", type=int, nargs='?',
+        dest="seed", help="Simulated seeding site of misfolded alpha-syn"
+        # injecting into the CP; CP = 35; CA1 = 24
+    )
+    parser.add_argument(
+        "-y", "--num_trials", type=int, nargs='?', default=200,
+        dest="num_trials", help="Number of optuna trials"
+        # injecting into the CP; CP = 35; CA1 = 24
+    )
+    parser.add_argument(
+        "-n", dest="study_name",
+         nargs='?', help="Study name")
+    args = parser.parse_args()
+`
+
 
 ## Full Workflow 
 
