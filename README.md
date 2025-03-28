@@ -8,8 +8,10 @@ Code is built upon previous work from Shady Rahayel (https://github.com/srahayel
 Arguments:
 
 `   
+
     parser.add_argument("-a", "--atrophy", type=str2bool, default=False, dest="atrophy",
                         nargs='?', help="Boolean for whether we want to simulate atrophy or stop at I fraction")
+                        
                         
     parser.add_argument("-m", "--map_to_predict", dest="map",
                         nargs='?', help="Pathological map to compare to simulated atrophy")
