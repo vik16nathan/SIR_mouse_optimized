@@ -8,6 +8,8 @@ If you have any questions, don't hesitate to contact me at vikram.nathan@mail.mc
 
 ## Main script: abm_optuna_general.py
 
+Runs 200 trials of Optuna parameter tuning over the entire parameter space of the SIR model (spread_rate, v, injection_amount, k1, k2). For more information into what these parameters mean and how the SIR model was derived to predict whole-brain neurodegeneration, see Zheng et al., 2019, or Rahayel et al., 2022.
+
 Files needed (see *inputs*):
 
 - yohan_source_full.pkl: a file containing all the mesoscale regions from Oh et al., 2014 that were retained after parcellating gene expression and filtering genes with sufficient spatial resolution (see steps 1-3 of the full workflow)
@@ -131,3 +133,4 @@ qbatch is not necessary but highly recommended to parallelize job submission (es
 ## Results
 
 See link to poster, presented at ADPD 2025 and Synuclein 2025. 
+https://drive.google.com/file/d/1LrodXuSPW-p-XMWuTDczNVwOtLvko7vO/view?usp=sharing
