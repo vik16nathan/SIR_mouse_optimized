@@ -12,7 +12,7 @@ Files needed:
 
 - a directory containing all clearance genes + Snca expression (stored as .pkl files)
 
-- params_nature_yohan_ccfv3.pkl and params_nature_retro_yohan_ccfv3.pkl: binarized connectomes from Rahayel et al., 2022, containing only 209/213 regions used in the previous analysis
+- params_nature_yohan_ccfv3.pkl and params_nature_retro_yohan_ccfv3.pkl: binarized connectomes from Rahayel et al., 2022, containing only 209/213 regions used in Oh et al., 2014 (see below for explanation). 
 
   
 Arguments:
@@ -94,6 +94,9 @@ optional: run SIR_mouse_exploration.ipynb, or simply take params_nature_yohan_cc
 
 ### Run SIR agent-based model to find optimal parameters and simulate pathology 
 
+You can repeat step 4 for a wide variety of genes in a .csv file using make_optuna_clearance_commands.sh. We recommend using qbatch to parallelize job submission on a compute cluster. 
+https://github.com/CoBrALab/qbatch
+
 4. **abm_optuna_general.py**: see above
 5. **abm_clearance_genes.py**: allows you to simulate the "I" fraction/atrophy given a specific set of parameters for v, spread_rate, k1, k2, and retro. Output is the .pkl file containing the simulated neurodegeneration data for every timestep of the SIR model, but with a single set of "trial" parameters (no optuna). This is useful for simulating neurodegeneration in each region for the "optimal" parameterization determined above, and then correlating with the empirical pathology.
 
@@ -110,6 +113,10 @@ optional: run SIR_mouse_exploration.ipynb, or simply take params_nature_yohan_cc
 **convert_shady_ihc_to_csv.R**: used to convert supplementary tables of IHC pathology from Rahayel et al., 2022, *Brain*.
 
 **SIR_mouse_exploration.ipynb**: used to look at initial connectome/clearance genes, and after step 3 to generate params_nature_yohan.pkl and params_nature_yohan_retro.pkl 
+
+## Other information
+
+To generate precise maps of brain atrophies at the individual and population level, given a set of structural MRI scans, we recommend using Deformation-Based Morphometry, as implemented by Dr. Gabriel Devenyi. For more information, see https://github.com/CoBrALab/twolevel_ants_dbm
 
 ## Dependencies
 python 3.11.5 with all prerequisite packages installed
